@@ -9,6 +9,9 @@ Release
 *#
 *.iml
 tags
+.vs/
+.vscode/
+bin/
 
 #vim swap file
 *.swp
