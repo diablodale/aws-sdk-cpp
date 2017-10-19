@@ -178,6 +178,7 @@
 #include <aws/ec2/model/ModifyVolumeResponse.h>
 #include <aws/ec2/model/ModifyVpcEndpointResponse.h>
 #include <aws/ec2/model/ModifyVpcPeeringConnectionOptionsResponse.h>
+#include <aws/ec2/model/ModifyVpcTenancyResponse.h>
 #include <aws/ec2/model/MonitorInstancesResponse.h>
 #include <aws/ec2/model/MoveAddressToVpcResponse.h>
 #include <aws/ec2/model/PurchaseHostReservationResponse.h>
@@ -453,6 +454,7 @@ namespace Model
         class ModifyVpcAttributeRequest;
         class ModifyVpcEndpointRequest;
         class ModifyVpcPeeringConnectionOptionsRequest;
+        class ModifyVpcTenancyRequest;
         class MonitorInstancesRequest;
         class MoveAddressToVpcRequest;
         class PurchaseHostReservationRequest;
@@ -695,6 +697,7 @@ namespace Model
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<EC2Errors>> ModifyVpcAttributeOutcome;
         typedef Aws::Utils::Outcome<ModifyVpcEndpointResponse, Aws::Client::AWSError<EC2Errors>> ModifyVpcEndpointOutcome;
         typedef Aws::Utils::Outcome<ModifyVpcPeeringConnectionOptionsResponse, Aws::Client::AWSError<EC2Errors>> ModifyVpcPeeringConnectionOptionsOutcome;
+        typedef Aws::Utils::Outcome<ModifyVpcTenancyResponse, Aws::Client::AWSError<EC2Errors>> ModifyVpcTenancyOutcome;
         typedef Aws::Utils::Outcome<MonitorInstancesResponse, Aws::Client::AWSError<EC2Errors>> MonitorInstancesOutcome;
         typedef Aws::Utils::Outcome<MoveAddressToVpcResponse, Aws::Client::AWSError<EC2Errors>> MoveAddressToVpcOutcome;
         typedef Aws::Utils::Outcome<PurchaseHostReservationResponse, Aws::Client::AWSError<EC2Errors>> PurchaseHostReservationOutcome;
@@ -937,6 +940,7 @@ namespace Model
         typedef std::future<ModifyVpcAttributeOutcome> ModifyVpcAttributeOutcomeCallable;
         typedef std::future<ModifyVpcEndpointOutcome> ModifyVpcEndpointOutcomeCallable;
         typedef std::future<ModifyVpcPeeringConnectionOptionsOutcome> ModifyVpcPeeringConnectionOptionsOutcomeCallable;
+        typedef std::future<ModifyVpcTenancyOutcome> ModifyVpcTenancyOutcomeCallable;
         typedef std::future<MonitorInstancesOutcome> MonitorInstancesOutcomeCallable;
         typedef std::future<MoveAddressToVpcOutcome> MoveAddressToVpcOutcomeCallable;
         typedef std::future<PurchaseHostReservationOutcome> PurchaseHostReservationOutcomeCallable;
@@ -1182,6 +1186,7 @@ namespace Model
     typedef std::function<void(const EC2Client*, const Model::ModifyVpcAttributeRequest&, const Model::ModifyVpcAttributeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyVpcAttributeResponseReceivedHandler;
     typedef std::function<void(const EC2Client*, const Model::ModifyVpcEndpointRequest&, const Model::ModifyVpcEndpointOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyVpcEndpointResponseReceivedHandler;
     typedef std::function<void(const EC2Client*, const Model::ModifyVpcPeeringConnectionOptionsRequest&, const Model::ModifyVpcPeeringConnectionOptionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyVpcPeeringConnectionOptionsResponseReceivedHandler;
+    typedef std::function<void(const EC2Client*, const Model::ModifyVpcTenancyRequest&, const Model::ModifyVpcTenancyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyVpcTenancyResponseReceivedHandler;
     typedef std::function<void(const EC2Client*, const Model::MonitorInstancesRequest&, const Model::MonitorInstancesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > MonitorInstancesResponseReceivedHandler;
     typedef std::function<void(const EC2Client*, const Model::MoveAddressToVpcRequest&, const Model::MoveAddressToVpcOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > MoveAddressToVpcResponseReceivedHandler;
     typedef std::function<void(const EC2Client*, const Model::PurchaseHostReservationRequest&, const Model::PurchaseHostReservationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PurchaseHostReservationResponseReceivedHandler;
@@ -1251,7 +1256,7 @@ namespace Model
 
         virtual ~EC2Client();
 
-        inline virtual const char* GetServiceClientName() override { return "ec2"; }
+        inline virtual const char* GetServiceClientName() const override { return "ec2"; }
 
 
         /**
@@ -2017,9 +2022,9 @@ namespace Model
         /**
          * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual
          * private gateway to one VPC at a time.</p> <p>For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVpnGateway">AWS
          * API Reference</a></p>
          */
@@ -2028,9 +2033,9 @@ namespace Model
         /**
          * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual
          * private gateway to one VPC at a time.</p> <p>For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVpnGateway">AWS
          * API Reference</a></p>
          *
@@ -2041,9 +2046,9 @@ namespace Model
         /**
          * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual
          * private gateway to one VPC at a time.</p> <p>For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVpnGateway">AWS
          * API Reference</a></p>
          *
@@ -2505,7 +2510,7 @@ namespace Model
         /**
          * <p>Determines whether a product code is associated with an instance. This action
          * can only be used by the owner of the product code. It is useful when a product
-         * code owner needs to verify whether another user's instance is eligible for
+         * code owner must verify whether another user's instance is eligible for
          * support.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ConfirmProductInstance">AWS
          * API Reference</a></p>
@@ -2515,7 +2520,7 @@ namespace Model
         /**
          * <p>Determines whether a product code is associated with an instance. This action
          * can only be used by the owner of the product code. It is useful when a product
-         * code owner needs to verify whether another user's instance is eligible for
+         * code owner must verify whether another user's instance is eligible for
          * support.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ConfirmProductInstance">AWS
          * API Reference</a></p>
@@ -2527,7 +2532,7 @@ namespace Model
         /**
          * <p>Determines whether a product code is associated with an instance. This action
          * can only be used by the owner of the product code. It is useful when a product
-         * code owner needs to verify whether another user's instance is eligible for
+         * code owner must verify whether another user's instance is eligible for
          * support.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ConfirmProductInstance">AWS
          * API Reference</a></p>
@@ -2694,14 +2699,14 @@ namespace Model
          * with the exception of 7224, which is reserved in the <code>us-east-1</code>
          * region, and 9059, which is reserved in the <code>eu-west-1</code> region.</p>
          * </note> <p>For more information about VPN customer gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p> <important> <p>You cannot create more than one
-         * customer gateway with the same VPN type, IP address, and BGP ASN parameter
-         * values. If you run an identical request more than one time, the first request
-         * creates the customer gateway, and subsequent requests return information about
-         * the existing customer gateway. The subsequent requests do not create new
-         * customer gateway resources.</p> </important><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p> <important> <p>You cannot create more than one customer gateway
+         * with the same VPN type, IP address, and BGP ASN parameter values. If you run an
+         * identical request more than one time, the first request creates the customer
+         * gateway, and subsequent requests return information about the existing customer
+         * gateway. The subsequent requests do not create new customer gateway
+         * resources.</p> </important><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCustomerGateway">AWS
          * API Reference</a></p>
          */
@@ -2721,14 +2726,14 @@ namespace Model
          * with the exception of 7224, which is reserved in the <code>us-east-1</code>
          * region, and 9059, which is reserved in the <code>eu-west-1</code> region.</p>
          * </note> <p>For more information about VPN customer gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p> <important> <p>You cannot create more than one
-         * customer gateway with the same VPN type, IP address, and BGP ASN parameter
-         * values. If you run an identical request more than one time, the first request
-         * creates the customer gateway, and subsequent requests return information about
-         * the existing customer gateway. The subsequent requests do not create new
-         * customer gateway resources.</p> </important><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p> <important> <p>You cannot create more than one customer gateway
+         * with the same VPN type, IP address, and BGP ASN parameter values. If you run an
+         * identical request more than one time, the first request creates the customer
+         * gateway, and subsequent requests return information about the existing customer
+         * gateway. The subsequent requests do not create new customer gateway
+         * resources.</p> </important><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCustomerGateway">AWS
          * API Reference</a></p>
          *
@@ -2750,14 +2755,14 @@ namespace Model
          * with the exception of 7224, which is reserved in the <code>us-east-1</code>
          * region, and 9059, which is reserved in the <code>eu-west-1</code> region.</p>
          * </note> <p>For more information about VPN customer gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p> <important> <p>You cannot create more than one
-         * customer gateway with the same VPN type, IP address, and BGP ASN parameter
-         * values. If you run an identical request more than one time, the first request
-         * creates the customer gateway, and subsequent requests return information about
-         * the existing customer gateway. The subsequent requests do not create new
-         * customer gateway resources.</p> </important><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p> <important> <p>You cannot create more than one customer gateway
+         * with the same VPN type, IP address, and BGP ASN parameter values. If you run an
+         * identical request more than one time, the first request creates the customer
+         * gateway, and subsequent requests return information about the existing customer
+         * gateway. The subsequent requests do not create new customer gateway
+         * resources.</p> </important><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCustomerGateway">AWS
          * API Reference</a></p>
          *
@@ -3494,9 +3499,9 @@ namespace Model
         virtual void CreateNetworkInterfacePermissionAsync(const Model::CreateNetworkInterfacePermissionRequest& request, const CreateNetworkInterfacePermissionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates a placement group that you launch cluster instances into. You must
-         * give the group a name that's unique within the scope of your account.</p> <p>For
-         * more information about placement groups and cluster instances, see <a
+         * <p>Creates a placement group that you launch cluster instances into. Give the
+         * group a name that's unique within the scope of your account.</p> <p>For more
+         * information about placement groups and cluster instances, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
          * Instances</a> in the <i>Amazon Elastic Compute Cloud User
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -3506,9 +3511,9 @@ namespace Model
         virtual Model::CreatePlacementGroupOutcome CreatePlacementGroup(const Model::CreatePlacementGroupRequest& request) const;
 
         /**
-         * <p>Creates a placement group that you launch cluster instances into. You must
-         * give the group a name that's unique within the scope of your account.</p> <p>For
-         * more information about placement groups and cluster instances, see <a
+         * <p>Creates a placement group that you launch cluster instances into. Give the
+         * group a name that's unique within the scope of your account.</p> <p>For more
+         * information about placement groups and cluster instances, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
          * Instances</a> in the <i>Amazon Elastic Compute Cloud User
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -3520,9 +3525,9 @@ namespace Model
         virtual Model::CreatePlacementGroupOutcomeCallable CreatePlacementGroupCallable(const Model::CreatePlacementGroupRequest& request) const;
 
         /**
-         * <p>Creates a placement group that you launch cluster instances into. You must
-         * give the group a name that's unique within the scope of your account.</p> <p>For
-         * more information about placement groups and cluster instances, see <a
+         * <p>Creates a placement group that you launch cluster instances into. Give the
+         * group a name that's unique within the scope of your account.</p> <p>For more
+         * information about placement groups and cluster instances, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
          * Instances</a> in the <i>Amazon Elastic Compute Cloud User
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -4358,10 +4363,10 @@ namespace Model
          * you must reconfigure your customer gateway with the new information returned
          * from this call.</p> <p>This is an idempotent operation. If you perform the
          * operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more
-         * information about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * information, see <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnection">AWS
          * API Reference</a></p>
          */
@@ -4379,10 +4384,10 @@ namespace Model
          * you must reconfigure your customer gateway with the new information returned
          * from this call.</p> <p>This is an idempotent operation. If you perform the
          * operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more
-         * information about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * information, see <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnection">AWS
          * API Reference</a></p>
          *
@@ -4402,10 +4407,10 @@ namespace Model
          * you must reconfigure your customer gateway with the new information returned
          * from this call.</p> <p>This is an idempotent operation. If you perform the
          * operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more
-         * information about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * information, see <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnection">AWS
          * API Reference</a></p>
          *
@@ -4418,9 +4423,9 @@ namespace Model
          * virtual private gateway and a VPN customer gateway. The static route allows
          * traffic to be routed from the virtual private gateway to the VPN customer
          * gateway.</p> <p>For more information about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnectionRoute">AWS
          * API Reference</a></p>
          */
@@ -4431,9 +4436,9 @@ namespace Model
          * virtual private gateway and a VPN customer gateway. The static route allows
          * traffic to be routed from the virtual private gateway to the VPN customer
          * gateway.</p> <p>For more information about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnectionRoute">AWS
          * API Reference</a></p>
          *
@@ -4446,9 +4451,9 @@ namespace Model
          * virtual private gateway and a VPN customer gateway. The static route allows
          * traffic to be routed from the virtual private gateway to the VPN customer
          * gateway.</p> <p>For more information about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnectionRoute">AWS
          * API Reference</a></p>
          *
@@ -4461,9 +4466,9 @@ namespace Model
          * on the VPC side of your VPN connection. You can create a virtual private gateway
          * before creating the VPC itself.</p> <p>For more information about virtual
          * private gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnGateway">AWS
          * API Reference</a></p>
          */
@@ -4474,9 +4479,9 @@ namespace Model
          * on the VPC side of your VPN connection. You can create a virtual private gateway
          * before creating the VPC itself.</p> <p>For more information about virtual
          * private gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnGateway">AWS
          * API Reference</a></p>
          *
@@ -4489,9 +4494,9 @@ namespace Model
          * on the VPC side of your VPN connection. You can create a virtual private gateway
          * before creating the VPC itself.</p> <p>For more information about virtual
          * private gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnGateway">AWS
          * API Reference</a></p>
          *
@@ -5709,9 +5714,9 @@ namespace Model
         /**
          * <p>Describes one or more of your VPN customer gateways.</p> <p>For more
          * information about VPN customer gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCustomerGateways">AWS
          * API Reference</a></p>
          */
@@ -5720,9 +5725,9 @@ namespace Model
         /**
          * <p>Describes one or more of your VPN customer gateways.</p> <p>For more
          * information about VPN customer gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCustomerGateways">AWS
          * API Reference</a></p>
          *
@@ -5733,9 +5738,9 @@ namespace Model
         /**
          * <p>Describes one or more of your VPN customer gateways.</p> <p>For more
          * information about VPN customer gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCustomerGateways">AWS
          * API Reference</a></p>
          *
@@ -8295,9 +8300,9 @@ namespace Model
         /**
          * <p>Describes one or more of your VPN connections.</p> <p>For more information
          * about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections">AWS
          * API Reference</a></p>
          */
@@ -8306,9 +8311,9 @@ namespace Model
         /**
          * <p>Describes one or more of your VPN connections.</p> <p>For more information
          * about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections">AWS
          * API Reference</a></p>
          *
@@ -8319,9 +8324,9 @@ namespace Model
         /**
          * <p>Describes one or more of your VPN connections.</p> <p>For more information
          * about VPN connections, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual
-         * Private Cloud User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections">AWS
          * API Reference</a></p>
          *
@@ -8332,9 +8337,9 @@ namespace Model
         /**
          * <p>Describes one or more of your virtual private gateways.</p> <p>For more
          * information about virtual private gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud
-         * User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnGateways">AWS
          * API Reference</a></p>
          */
@@ -8343,9 +8348,9 @@ namespace Model
         /**
          * <p>Describes one or more of your virtual private gateways.</p> <p>For more
          * information about virtual private gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud
-         * User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnGateways">AWS
          * API Reference</a></p>
          *
@@ -8356,9 +8361,9 @@ namespace Model
         /**
          * <p>Describes one or more of your virtual private gateways.</p> <p>For more
          * information about virtual private gateways, see <a
-         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-         * an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud
-         * User Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+         * Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnGateways">AWS
          * API Reference</a></p>
          *
@@ -9014,13 +9019,13 @@ namespace Model
          * down. To allow these actions, we provide them through the Amazon EC2 API and
          * command line interface.</p> <p>Instance console output is buffered and posted
          * shortly after instance boot, reboot, and termination. Amazon EC2 preserves the
-         * most recent 64 KB output which is available for at least one hour after the most
-         * recent post.</p> <p>For Linux instances, the instance console output displays
-         * the exact console output that would normally be displayed on a physical monitor
-         * attached to a computer. This output is buffered because the instance produces it
-         * and then posts it to a store where the instance's owner can retrieve it.</p>
-         * <p>For Windows instances, the instance console output includes output from the
-         * EC2Config service.</p><p><h3>See Also:</h3>   <a
+         * most recent 64 KB output, which is available for at least one hour after the
+         * most recent post.</p> <p>For Linux instances, the instance console output
+         * displays the exact console output that would normally be displayed on a physical
+         * monitor attached to a computer. This output is buffered because the instance
+         * produces it and then posts it to a store where the instance's owner can retrieve
+         * it.</p> <p>For Windows instances, the instance console output includes output
+         * from the EC2Config service.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleOutput">AWS
          * API Reference</a></p>
          */
@@ -9033,13 +9038,13 @@ namespace Model
          * down. To allow these actions, we provide them through the Amazon EC2 API and
          * command line interface.</p> <p>Instance console output is buffered and posted
          * shortly after instance boot, reboot, and termination. Amazon EC2 preserves the
-         * most recent 64 KB output which is available for at least one hour after the most
-         * recent post.</p> <p>For Linux instances, the instance console output displays
-         * the exact console output that would normally be displayed on a physical monitor
-         * attached to a computer. This output is buffered because the instance produces it
-         * and then posts it to a store where the instance's owner can retrieve it.</p>
-         * <p>For Windows instances, the instance console output includes output from the
-         * EC2Config service.</p><p><h3>See Also:</h3>   <a
+         * most recent 64 KB output, which is available for at least one hour after the
+         * most recent post.</p> <p>For Linux instances, the instance console output
+         * displays the exact console output that would normally be displayed on a physical
+         * monitor attached to a computer. This output is buffered because the instance
+         * produces it and then posts it to a store where the instance's owner can retrieve
+         * it.</p> <p>For Windows instances, the instance console output includes output
+         * from the EC2Config service.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleOutput">AWS
          * API Reference</a></p>
          *
@@ -9054,13 +9059,13 @@ namespace Model
          * down. To allow these actions, we provide them through the Amazon EC2 API and
          * command line interface.</p> <p>Instance console output is buffered and posted
          * shortly after instance boot, reboot, and termination. Amazon EC2 preserves the
-         * most recent 64 KB output which is available for at least one hour after the most
-         * recent post.</p> <p>For Linux instances, the instance console output displays
-         * the exact console output that would normally be displayed on a physical monitor
-         * attached to a computer. This output is buffered because the instance produces it
-         * and then posts it to a store where the instance's owner can retrieve it.</p>
-         * <p>For Windows instances, the instance console output includes output from the
-         * EC2Config service.</p><p><h3>See Also:</h3>   <a
+         * most recent 64 KB output, which is available for at least one hour after the
+         * most recent post.</p> <p>For Linux instances, the instance console output
+         * displays the exact console output that would normally be displayed on a physical
+         * monitor attached to a computer. This output is buffered because the instance
+         * produces it and then posts it to a store where the instance's owner can retrieve
+         * it.</p> <p>For Windows instances, the instance console output includes output
+         * from the EC2Config service.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleOutput">AWS
          * API Reference</a></p>
          *
@@ -9213,20 +9218,22 @@ namespace Model
         virtual void GetPasswordDataAsync(const Model::GetPasswordDataRequest& request, const GetPasswordDataResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Returns details about the values and term of your specified Convertible
-         * Reserved Instances. When a target configuration is specified, it returns
-         * information about whether the exchange is valid and can be
-         * performed.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns a quote and exchange information for exchanging one or more specified
+         * Convertible Reserved Instances for a new Convertible Reserved Instance. If the
+         * exchange cannot be performed, the reason is returned in the response. Use
+         * <a>AcceptReservedInstancesExchangeQuote</a> to perform the
+         * exchange.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetReservedInstancesExchangeQuote">AWS
          * API Reference</a></p>
          */
         virtual Model::GetReservedInstancesExchangeQuoteOutcome GetReservedInstancesExchangeQuote(const Model::GetReservedInstancesExchangeQuoteRequest& request) const;
 
         /**
-         * <p>Returns details about the values and term of your specified Convertible
-         * Reserved Instances. When a target configuration is specified, it returns
-         * information about whether the exchange is valid and can be
-         * performed.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns a quote and exchange information for exchanging one or more specified
+         * Convertible Reserved Instances for a new Convertible Reserved Instance. If the
+         * exchange cannot be performed, the reason is returned in the response. Use
+         * <a>AcceptReservedInstancesExchangeQuote</a> to perform the
+         * exchange.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetReservedInstancesExchangeQuote">AWS
          * API Reference</a></p>
          *
@@ -9235,10 +9242,11 @@ namespace Model
         virtual Model::GetReservedInstancesExchangeQuoteOutcomeCallable GetReservedInstancesExchangeQuoteCallable(const Model::GetReservedInstancesExchangeQuoteRequest& request) const;
 
         /**
-         * <p>Returns details about the values and term of your specified Convertible
-         * Reserved Instances. When a target configuration is specified, it returns
-         * information about whether the exchange is valid and can be
-         * performed.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns a quote and exchange information for exchanging one or more specified
+         * Convertible Reserved Instances for a new Convertible Reserved Instance. If the
+         * exchange cannot be performed, the reason is returned in the response. Use
+         * <a>AcceptReservedInstancesExchangeQuote</a> to perform the
+         * exchange.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetReservedInstancesExchangeQuote">AWS
          * API Reference</a></p>
          *
@@ -9653,12 +9661,14 @@ namespace Model
 
         /**
          * <p>Modifies the specified attribute of the specified AMI. You can specify only
-         * one attribute at a time.</p> <note> <p>AWS Marketplace product codes cannot be
+         * one attribute at a time. You can use the <code>Attribute</code> parameter to
+         * specify the attribute or one of the following parameters:
+         * <code>Description</code>, <code>LaunchPermission</code>, or
+         * <code>ProductCode</code>.</p> <p>AWS Marketplace product codes cannot be
          * modified. Images with an AWS Marketplace product code cannot be made public.</p>
-         * </note> <note> <p>The SriovNetSupport enhanced networking attribute cannot be
-         * changed using this command. Instead, enable SriovNetSupport on an instance and
-         * create an AMI from the instance. This will result in an image with
-         * SriovNetSupport enabled.</p> </note><p><h3>See Also:</h3>   <a
+         * <p>To enable the SriovNetSupport enhanced networking attribute of an image,
+         * enable SriovNetSupport on an instance and create an AMI from the
+         * instance.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyImageAttribute">AWS
          * API Reference</a></p>
          */
@@ -9666,12 +9676,14 @@ namespace Model
 
         /**
          * <p>Modifies the specified attribute of the specified AMI. You can specify only
-         * one attribute at a time.</p> <note> <p>AWS Marketplace product codes cannot be
+         * one attribute at a time. You can use the <code>Attribute</code> parameter to
+         * specify the attribute or one of the following parameters:
+         * <code>Description</code>, <code>LaunchPermission</code>, or
+         * <code>ProductCode</code>.</p> <p>AWS Marketplace product codes cannot be
          * modified. Images with an AWS Marketplace product code cannot be made public.</p>
-         * </note> <note> <p>The SriovNetSupport enhanced networking attribute cannot be
-         * changed using this command. Instead, enable SriovNetSupport on an instance and
-         * create an AMI from the instance. This will result in an image with
-         * SriovNetSupport enabled.</p> </note><p><h3>See Also:</h3>   <a
+         * <p>To enable the SriovNetSupport enhanced networking attribute of an image,
+         * enable SriovNetSupport on an instance and create an AMI from the
+         * instance.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyImageAttribute">AWS
          * API Reference</a></p>
          *
@@ -9681,12 +9693,14 @@ namespace Model
 
         /**
          * <p>Modifies the specified attribute of the specified AMI. You can specify only
-         * one attribute at a time.</p> <note> <p>AWS Marketplace product codes cannot be
+         * one attribute at a time. You can use the <code>Attribute</code> parameter to
+         * specify the attribute or one of the following parameters:
+         * <code>Description</code>, <code>LaunchPermission</code>, or
+         * <code>ProductCode</code>.</p> <p>AWS Marketplace product codes cannot be
          * modified. Images with an AWS Marketplace product code cannot be made public.</p>
-         * </note> <note> <p>The SriovNetSupport enhanced networking attribute cannot be
-         * changed using this command. Instead, enable SriovNetSupport on an instance and
-         * create an AMI from the instance. This will result in an image with
-         * SriovNetSupport enabled.</p> </note><p><h3>See Also:</h3>   <a
+         * <p>To enable the SriovNetSupport enhanced networking attribute of an image,
+         * enable SriovNetSupport on an instance and create an AMI from the
+         * instance.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyImageAttribute">AWS
          * API Reference</a></p>
          *
@@ -9825,9 +9839,9 @@ namespace Model
 
         /**
          * <p>Modifies the Availability Zone, instance count, instance type, or network
-         * platform (EC2-Classic or EC2-VPC) of your Standard Reserved Instances. The
-         * Reserved Instances to be modified must be identical, except for Availability
-         * Zone, network platform, and instance type.</p> <p>For more information, see <a
+         * platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved
+         * Instances to be modified must be identical, except for Availability Zone,
+         * network platform, and instance type.</p> <p>For more information, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
          * Reserved Instances</a> in the Amazon Elastic Compute Cloud User
          * Guide.</p><p><h3>See Also:</h3>   <a
@@ -9838,9 +9852,9 @@ namespace Model
 
         /**
          * <p>Modifies the Availability Zone, instance count, instance type, or network
-         * platform (EC2-Classic or EC2-VPC) of your Standard Reserved Instances. The
-         * Reserved Instances to be modified must be identical, except for Availability
-         * Zone, network platform, and instance type.</p> <p>For more information, see <a
+         * platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved
+         * Instances to be modified must be identical, except for Availability Zone,
+         * network platform, and instance type.</p> <p>For more information, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
          * Reserved Instances</a> in the Amazon Elastic Compute Cloud User
          * Guide.</p><p><h3>See Also:</h3>   <a
@@ -9853,9 +9867,9 @@ namespace Model
 
         /**
          * <p>Modifies the Availability Zone, instance count, instance type, or network
-         * platform (EC2-Classic or EC2-VPC) of your Standard Reserved Instances. The
-         * Reserved Instances to be modified must be identical, except for Availability
-         * Zone, network platform, and instance type.</p> <p>For more information, see <a
+         * platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved
+         * Instances to be modified must be identical, except for Availability Zone,
+         * network platform, and instance type.</p> <p>For more information, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
          * Reserved Instances</a> in the Amazon Elastic Compute Cloud User
          * Guide.</p><p><h3>See Also:</h3>   <a
@@ -10323,6 +10337,58 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void ModifyVpcPeeringConnectionOptionsAsync(const Model::ModifyVpcPeeringConnectionOptionsRequest& request, const ModifyVpcPeeringConnectionOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Modifies the instance tenancy attribute of the specified VPC. You can change
+         * the instance tenancy attribute of a VPC to <code>default</code> only. You cannot
+         * change the instance tenancy attribute to <code>dedicated</code>.</p> <p>After
+         * you modify the tenancy of the VPC, any new instances that you launch into the
+         * VPC have a tenancy of <code>default</code>, unless you specify otherwise during
+         * launch. The tenancy of any existing instances in the VPC is not affected.</p>
+         * <p>For more information about Dedicated Instances, see <a
+         * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
+         * Instances</a> in the <i>Amazon Elastic Compute Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcTenancy">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ModifyVpcTenancyOutcome ModifyVpcTenancy(const Model::ModifyVpcTenancyRequest& request) const;
+
+        /**
+         * <p>Modifies the instance tenancy attribute of the specified VPC. You can change
+         * the instance tenancy attribute of a VPC to <code>default</code> only. You cannot
+         * change the instance tenancy attribute to <code>dedicated</code>.</p> <p>After
+         * you modify the tenancy of the VPC, any new instances that you launch into the
+         * VPC have a tenancy of <code>default</code>, unless you specify otherwise during
+         * launch. The tenancy of any existing instances in the VPC is not affected.</p>
+         * <p>For more information about Dedicated Instances, see <a
+         * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
+         * Instances</a> in the <i>Amazon Elastic Compute Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcTenancy">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ModifyVpcTenancyOutcomeCallable ModifyVpcTenancyCallable(const Model::ModifyVpcTenancyRequest& request) const;
+
+        /**
+         * <p>Modifies the instance tenancy attribute of the specified VPC. You can change
+         * the instance tenancy attribute of a VPC to <code>default</code> only. You cannot
+         * change the instance tenancy attribute to <code>dedicated</code>.</p> <p>After
+         * you modify the tenancy of the VPC, any new instances that you launch into the
+         * VPC have a tenancy of <code>default</code>, unless you specify otherwise during
+         * launch. The tenancy of any existing instances in the VPC is not affected.</p>
+         * <p>For more information about Dedicated Instances, see <a
+         * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
+         * Instances</a> in the <i>Amazon Elastic Compute Cloud User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcTenancy">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ModifyVpcTenancyAsync(const Model::ModifyVpcTenancyRequest& request, const ModifyVpcTenancyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Enables detailed monitoring for a running instance. Otherwise, basic
@@ -11546,9 +11612,9 @@ namespace Model
          * Groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached
          * for which the user has not subscribed, the request fails.</p> </li> </ul> <p>To
          * ensure faster instance launches, break up large requests into smaller batches.
-         * For example, create 5 separate launch requests for 100 instances each instead of
-         * 1 launch request for 500 instances.</p> <p>An instance is ready for you to use
-         * when it's in the <code>running</code> state. You can check the state of your
+         * For example, create five separate launch requests for 100 instances each instead
+         * of one launch request for 500 instances.</p> <p>An instance is ready for you to
+         * use when it's in the <code>running</code> state. You can check the state of your
          * instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes
          * during launch, after launch, or both. For more information, see
          * <a>CreateTags</a> and <a
@@ -11593,9 +11659,9 @@ namespace Model
          * Groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached
          * for which the user has not subscribed, the request fails.</p> </li> </ul> <p>To
          * ensure faster instance launches, break up large requests into smaller batches.
-         * For example, create 5 separate launch requests for 100 instances each instead of
-         * 1 launch request for 500 instances.</p> <p>An instance is ready for you to use
-         * when it's in the <code>running</code> state. You can check the state of your
+         * For example, create five separate launch requests for 100 instances each instead
+         * of one launch request for 500 instances.</p> <p>An instance is ready for you to
+         * use when it's in the <code>running</code> state. You can check the state of your
          * instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes
          * during launch, after launch, or both. For more information, see
          * <a>CreateTags</a> and <a
@@ -11642,9 +11708,9 @@ namespace Model
          * Groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached
          * for which the user has not subscribed, the request fails.</p> </li> </ul> <p>To
          * ensure faster instance launches, break up large requests into smaller batches.
-         * For example, create 5 separate launch requests for 100 instances each instead of
-         * 1 launch request for 500 instances.</p> <p>An instance is ready for you to use
-         * when it's in the <code>running</code> state. You can check the state of your
+         * For example, create five separate launch requests for 100 instances each instead
+         * of one launch request for 500 instances.</p> <p>An instance is ready for you to
+         * use when it's in the <code>running</code> state. You can check the state of your
          * instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes
          * during launch, after launch, or both. For more information, see
          * <a>CreateTags</a> and <a
@@ -11721,18 +11787,22 @@ namespace Model
         virtual void RunScheduledInstancesAsync(const Model::RunScheduledInstancesRequest& request, const RunScheduledInstancesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Starts an Amazon EBS-backed AMI that you've previously stopped.</p>
+         * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
          * <p>Instances that use Amazon EBS volumes as their root devices can be quickly
          * stopped and started. When an instance is stopped, the compute resources are
-         * released and you are not billed for hourly instance usage. However, your root
-         * partition Amazon EBS volume remains, continues to persist your data, and you are
+         * released and you are not billed for instance usage. However, your root partition
+         * Amazon EBS volume remains and continues to persist your data, and you are
          * charged for Amazon EBS volume usage. You can restart your instance at any time.
-         * Each time you transition an instance from stopped to started, Amazon EC2 charges
-         * a full instance hour, even if transitions happen multiple times within a single
-         * hour.</p> <p>Before stopping an instance, make sure it is in a state from which
-         * it can be restarted. Stopping an instance does not preserve data stored in
-         * RAM.</p> <p>Performing this operation on an instance that uses an instance store
-         * as its root device returns an error.</p> <p>For more information, see <a
+         * Every time you start your Windows instance, Amazon EC2 charges you for a full
+         * instance hour. If you stop and restart your Windows instance, a new instance
+         * hour begins and Amazon EC2 charges you for another full instance hour even if
+         * you are still within the same 60-minute period when it was stopped. Every time
+         * you start your Linux instance, Amazon EC2 charges a one-minute minimum for
+         * instance usage, and thereafter charges per second for instance usage.</p>
+         * <p>Before stopping an instance, make sure it is in a state from which it can be
+         * restarted. Stopping an instance does not preserve data stored in RAM.</p>
+         * <p>Performing this operation on an instance that uses an instance store as its
+         * root device returns an error.</p> <p>For more information, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping
          * Instances</a> in the <i>Amazon Elastic Compute Cloud User
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -11742,18 +11812,22 @@ namespace Model
         virtual Model::StartInstancesOutcome StartInstances(const Model::StartInstancesRequest& request) const;
 
         /**
-         * <p>Starts an Amazon EBS-backed AMI that you've previously stopped.</p>
+         * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
          * <p>Instances that use Amazon EBS volumes as their root devices can be quickly
          * stopped and started. When an instance is stopped, the compute resources are
-         * released and you are not billed for hourly instance usage. However, your root
-         * partition Amazon EBS volume remains, continues to persist your data, and you are
+         * released and you are not billed for instance usage. However, your root partition
+         * Amazon EBS volume remains and continues to persist your data, and you are
          * charged for Amazon EBS volume usage. You can restart your instance at any time.
-         * Each time you transition an instance from stopped to started, Amazon EC2 charges
-         * a full instance hour, even if transitions happen multiple times within a single
-         * hour.</p> <p>Before stopping an instance, make sure it is in a state from which
-         * it can be restarted. Stopping an instance does not preserve data stored in
-         * RAM.</p> <p>Performing this operation on an instance that uses an instance store
-         * as its root device returns an error.</p> <p>For more information, see <a
+         * Every time you start your Windows instance, Amazon EC2 charges you for a full
+         * instance hour. If you stop and restart your Windows instance, a new instance
+         * hour begins and Amazon EC2 charges you for another full instance hour even if
+         * you are still within the same 60-minute period when it was stopped. Every time
+         * you start your Linux instance, Amazon EC2 charges a one-minute minimum for
+         * instance usage, and thereafter charges per second for instance usage.</p>
+         * <p>Before stopping an instance, make sure it is in a state from which it can be
+         * restarted. Stopping an instance does not preserve data stored in RAM.</p>
+         * <p>Performing this operation on an instance that uses an instance store as its
+         * root device returns an error.</p> <p>For more information, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping
          * Instances</a> in the <i>Amazon Elastic Compute Cloud User
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -11765,18 +11839,22 @@ namespace Model
         virtual Model::StartInstancesOutcomeCallable StartInstancesCallable(const Model::StartInstancesRequest& request) const;
 
         /**
-         * <p>Starts an Amazon EBS-backed AMI that you've previously stopped.</p>
+         * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
          * <p>Instances that use Amazon EBS volumes as their root devices can be quickly
          * stopped and started. When an instance is stopped, the compute resources are
-         * released and you are not billed for hourly instance usage. However, your root
-         * partition Amazon EBS volume remains, continues to persist your data, and you are
+         * released and you are not billed for instance usage. However, your root partition
+         * Amazon EBS volume remains and continues to persist your data, and you are
          * charged for Amazon EBS volume usage. You can restart your instance at any time.
-         * Each time you transition an instance from stopped to started, Amazon EC2 charges
-         * a full instance hour, even if transitions happen multiple times within a single
-         * hour.</p> <p>Before stopping an instance, make sure it is in a state from which
-         * it can be restarted. Stopping an instance does not preserve data stored in
-         * RAM.</p> <p>Performing this operation on an instance that uses an instance store
-         * as its root device returns an error.</p> <p>For more information, see <a
+         * Every time you start your Windows instance, Amazon EC2 charges you for a full
+         * instance hour. If you stop and restart your Windows instance, a new instance
+         * hour begins and Amazon EC2 charges you for another full instance hour even if
+         * you are still within the same 60-minute period when it was stopped. Every time
+         * you start your Linux instance, Amazon EC2 charges a one-minute minimum for
+         * instance usage, and thereafter charges per second for instance usage.</p>
+         * <p>Before stopping an instance, make sure it is in a state from which it can be
+         * restarted. Stopping an instance does not preserve data stored in RAM.</p>
+         * <p>Performing this operation on an instance that uses an instance store as its
+         * root device returns an error.</p> <p>For more information, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping
          * Instances</a> in the <i>Amazon Elastic Compute Cloud User
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -11788,22 +11866,25 @@ namespace Model
         virtual void StartInstancesAsync(const Model::StartInstancesRequest& request, const StartInstancesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Stops an Amazon EBS-backed instance.</p> <p>We don't charge hourly usage for
-         * a stopped instance, or data transfer fees; however, your root partition Amazon
-         * EBS volume remains, continues to persist your data, and you are charged for
-         * Amazon EBS volume usage. Each time you transition an instance from stopped to
-         * started, Amazon EC2 charges a full instance hour, even if transitions happen
-         * multiple times within a single hour.</p> <p>You can't start or stop Spot
-         * instances, and you can't stop instance store-backed instances.</p> <p>When you
-         * stop an instance, we shut it down. You can restart your instance at any time.
-         * Before stopping an instance, make sure it is in a state from which it can be
-         * restarted. Stopping an instance does not preserve data stored in RAM.</p>
-         * <p>Stopping an instance is different to rebooting or terminating it. For
-         * example, when you stop an instance, the root device and any other devices
-         * attached to the instance persist. When you terminate an instance, the root
-         * device and any other devices attached during the instance launch are
-         * automatically deleted. For more information about the differences between
-         * rebooting, stopping, and terminating instances, see <a
+         * <p>Stops an Amazon EBS-backed instance.</p> <p>We don't charge usage for a
+         * stopped instance, or data transfer fees; however, your root partition Amazon EBS
+         * volume remains and continues to persist your data, and you are charged for
+         * Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2
+         * charges you for a full instance hour. If you stop and restart your Windows
+         * instance, a new instance hour begins and Amazon EC2 charges you for another full
+         * instance hour even if you are still within the same 60-minute period when it was
+         * stopped. Every time you start your Linux instance, Amazon EC2 charges a
+         * one-minute minimum for instance usage, and thereafter charges per second for
+         * instance usage.</p> <p>You can't start or stop Spot Instances, and you can't
+         * stop instance store-backed instances.</p> <p>When you stop an instance, we shut
+         * it down. You can restart your instance at any time. Before stopping an instance,
+         * make sure it is in a state from which it can be restarted. Stopping an instance
+         * does not preserve data stored in RAM.</p> <p>Stopping an instance is different
+         * to rebooting or terminating it. For example, when you stop an instance, the root
+         * device and any other devices attached to the instance persist. When you
+         * terminate an instance, the root device and any other devices attached during the
+         * instance launch are automatically deleted. For more information about the
+         * differences between rebooting, stopping, and terminating instances, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
          * Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>When
          * you stop an instance, we attempt to shut it down forcibly after a short while.
@@ -11819,22 +11900,25 @@ namespace Model
         virtual Model::StopInstancesOutcome StopInstances(const Model::StopInstancesRequest& request) const;
 
         /**
-         * <p>Stops an Amazon EBS-backed instance.</p> <p>We don't charge hourly usage for
-         * a stopped instance, or data transfer fees; however, your root partition Amazon
-         * EBS volume remains, continues to persist your data, and you are charged for
-         * Amazon EBS volume usage. Each time you transition an instance from stopped to
-         * started, Amazon EC2 charges a full instance hour, even if transitions happen
-         * multiple times within a single hour.</p> <p>You can't start or stop Spot
-         * instances, and you can't stop instance store-backed instances.</p> <p>When you
-         * stop an instance, we shut it down. You can restart your instance at any time.
-         * Before stopping an instance, make sure it is in a state from which it can be
-         * restarted. Stopping an instance does not preserve data stored in RAM.</p>
-         * <p>Stopping an instance is different to rebooting or terminating it. For
-         * example, when you stop an instance, the root device and any other devices
-         * attached to the instance persist. When you terminate an instance, the root
-         * device and any other devices attached during the instance launch are
-         * automatically deleted. For more information about the differences between
-         * rebooting, stopping, and terminating instances, see <a
+         * <p>Stops an Amazon EBS-backed instance.</p> <p>We don't charge usage for a
+         * stopped instance, or data transfer fees; however, your root partition Amazon EBS
+         * volume remains and continues to persist your data, and you are charged for
+         * Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2
+         * charges you for a full instance hour. If you stop and restart your Windows
+         * instance, a new instance hour begins and Amazon EC2 charges you for another full
+         * instance hour even if you are still within the same 60-minute period when it was
+         * stopped. Every time you start your Linux instance, Amazon EC2 charges a
+         * one-minute minimum for instance usage, and thereafter charges per second for
+         * instance usage.</p> <p>You can't start or stop Spot Instances, and you can't
+         * stop instance store-backed instances.</p> <p>When you stop an instance, we shut
+         * it down. You can restart your instance at any time. Before stopping an instance,
+         * make sure it is in a state from which it can be restarted. Stopping an instance
+         * does not preserve data stored in RAM.</p> <p>Stopping an instance is different
+         * to rebooting or terminating it. For example, when you stop an instance, the root
+         * device and any other devices attached to the instance persist. When you
+         * terminate an instance, the root device and any other devices attached during the
+         * instance launch are automatically deleted. For more information about the
+         * differences between rebooting, stopping, and terminating instances, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
          * Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>When
          * you stop an instance, we attempt to shut it down forcibly after a short while.
@@ -11852,22 +11936,25 @@ namespace Model
         virtual Model::StopInstancesOutcomeCallable StopInstancesCallable(const Model::StopInstancesRequest& request) const;
 
         /**
-         * <p>Stops an Amazon EBS-backed instance.</p> <p>We don't charge hourly usage for
-         * a stopped instance, or data transfer fees; however, your root partition Amazon
-         * EBS volume remains, continues to persist your data, and you are charged for
-         * Amazon EBS volume usage. Each time you transition an instance from stopped to
-         * started, Amazon EC2 charges a full instance hour, even if transitions happen
-         * multiple times within a single hour.</p> <p>You can't start or stop Spot
-         * instances, and you can't stop instance store-backed instances.</p> <p>When you
-         * stop an instance, we shut it down. You can restart your instance at any time.
-         * Before stopping an instance, make sure it is in a state from which it can be
-         * restarted. Stopping an instance does not preserve data stored in RAM.</p>
-         * <p>Stopping an instance is different to rebooting or terminating it. For
-         * example, when you stop an instance, the root device and any other devices
-         * attached to the instance persist. When you terminate an instance, the root
-         * device and any other devices attached during the instance launch are
-         * automatically deleted. For more information about the differences between
-         * rebooting, stopping, and terminating instances, see <a
+         * <p>Stops an Amazon EBS-backed instance.</p> <p>We don't charge usage for a
+         * stopped instance, or data transfer fees; however, your root partition Amazon EBS
+         * volume remains and continues to persist your data, and you are charged for
+         * Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2
+         * charges you for a full instance hour. If you stop and restart your Windows
+         * instance, a new instance hour begins and Amazon EC2 charges you for another full
+         * instance hour even if you are still within the same 60-minute period when it was
+         * stopped. Every time you start your Linux instance, Amazon EC2 charges a
+         * one-minute minimum for instance usage, and thereafter charges per second for
+         * instance usage.</p> <p>You can't start or stop Spot Instances, and you can't
+         * stop instance store-backed instances.</p> <p>When you stop an instance, we shut
+         * it down. You can restart your instance at any time. Before stopping an instance,
+         * make sure it is in a state from which it can be restarted. Stopping an instance
+         * does not preserve data stored in RAM.</p> <p>Stopping an instance is different
+         * to rebooting or terminating it. For example, when you stop an instance, the root
+         * device and any other devices attached to the instance persist. When you
+         * terminate an instance, the root device and any other devices attached during the
+         * instance launch are automatically deleted. For more information about the
+         * differences between rebooting, stopping, and terminating instances, see <a
          * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
          * Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>When
          * you stop an instance, we attempt to shut it down forcibly after a short while.
@@ -12349,6 +12436,7 @@ namespace Model
         void ModifyVpcAttributeAsyncHelper(const Model::ModifyVpcAttributeRequest& request, const ModifyVpcAttributeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyVpcEndpointAsyncHelper(const Model::ModifyVpcEndpointRequest& request, const ModifyVpcEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyVpcPeeringConnectionOptionsAsyncHelper(const Model::ModifyVpcPeeringConnectionOptionsRequest& request, const ModifyVpcPeeringConnectionOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ModifyVpcTenancyAsyncHelper(const Model::ModifyVpcTenancyRequest& request, const ModifyVpcTenancyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void MonitorInstancesAsyncHelper(const Model::MonitorInstancesRequest& request, const MonitorInstancesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void MoveAddressToVpcAsyncHelper(const Model::MoveAddressToVpcRequest& request, const MoveAddressToVpcResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PurchaseHostReservationAsyncHelper(const Model::PurchaseHostReservationRequest& request, const PurchaseHostReservationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
